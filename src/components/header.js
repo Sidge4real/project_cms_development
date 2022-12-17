@@ -23,10 +23,10 @@ const drawerWidth = 150;
 const navItems = ['home', 'platforms','contact'];
 // links hover:
 function changeColor(e) {
-  e.target.style.color = '#17C9FB';
+  e.target.style.color = '#1A74E8';
 }
 function resetColor(e) {
-  e.target.style.color = 'white';
+  e.target.style.color = '#000';
 }
 
 function DrawerAppBar(props) {
@@ -68,17 +68,17 @@ function DrawerAppBar(props) {
   return (
     //appbar = navbar, navbar desktop:
     <Box sx={{ display: 'flex' }}>
-      <AppBar position="static" style={{ background: '#161C2E' }}>
+      <AppBar position="static" style={{ background: 'white' }}>
         <Toolbar>
           <Link to='/' style={{display:'flex', textDecoration:'none', alignItems:'center', gap:'5px'}}>
         <StaticImage alt='logo' src="../images/logo.png" style={{ width: '40px'}}/>
-          <Typography variant="h1" component="h1" style={{ margin:'0', padding:'0', fontWeight:'bold', color:'#fff', fontFamily:'sans-serif', fontSize:'25px'}}>
+          <Typography variant="h1" component="h1" style={{ margin:'0', padding:'0', fontWeight:'bold', color:'#000', fontFamily:'sans-serif', fontSize:'25px'}}>
               Wiz
           </Typography>
         </Link>
           {/* hamburger menu (button + icon) => zichtbaar wanneer mobile view */}
           <IconButton
-            color="inherit"
+            color="black"
             aria-label="open drawer"
             edge="start"
             onClick={handleDrawerToggle}
@@ -99,9 +99,9 @@ function DrawerAppBar(props) {
             {navItems.map((item) => (
               <Button key={item} sx={{ color: '#fff' }}>
                 {item=="home" ? (
-                <Link to='/' onMouseEnter={changeColor} onMouseLeave={resetColor} style={{ textDecoration: 'none', color:'white', fontWeight:'bold' }}>{item}</Link>
+                <Link to='/' onMouseEnter={changeColor} onMouseLeave={resetColor} style={{ textDecoration: 'none', color:'#000', fontWeight:'bold' }}>{item}</Link>
                 ) : (
-                  <Link to={`/${item}`} onMouseEnter={changeColor} onMouseLeave={resetColor} style={{ textDecoration: 'none', color:'white', fontWeight:'bold' }}>{item}</Link>
+                  <Link to={`/${item}`} onMouseEnter={changeColor} onMouseLeave={resetColor} style={{ textDecoration: 'none', color:'#000', fontWeight:'bold' }}>{item}</Link>
                 )
                 }
               </Button>

@@ -3,37 +3,49 @@ import Layout from "../components/layout";
 import { graphql } from "gatsby";
 import { useStaticQuery } from "gatsby";
 
-const PlatformsPage = () =>{
+const PlatformsPage = () => {
 
-    const data = useStaticQuery(graphql`
-    query {
-  wpPlatform(slug: {}) 
-  {
-    id
-    slug
-    title
-    content
-    homeFields {
-      description
-      title
-      fieldGroupName
+  const data = useStaticQuery(graphql`
+      query{
+  allWpPlatform(sort: {fields: platformMeta___company}) {
+    edges {
+      node {
+        platformMeta {
+          company
+          description
+          membersCount
+          possibilities
+          priceValue
+          rating
+          subjects
+          title
+          usersCount
+        }
+      }
     }
   }
 }
 
+
+}
+
   `)
-  var stripedHtml = data.wpPlatform.homeFields.description.replace(/<[^>]+>/g, '');
-  console.log(stripedHtml);
-  console.log(data.wpPlatform.slug);
+
+  // platformMeta in graphQL voor alle data
+    // var stripedHtml = data.wpPlatform.homeFields.description.replace(/<[^>]+>/g, '');
+  // console.log(stripedHtml);
+  // console.log(data.wpPlatform.slug);
 
 
-    return(
-        <Layout>
-            <section>
-            <h1>{data.wpPlatform.homeFields.description}</h1>
-            </section>           
-        </Layout>
-    )
+  return (
+    <Layout>
+      <section>
+        <div
+          dangerouslySetInnerHTML={{ __html: data.allWpPlatform.nodes.platformMeta.description}}>
+        </div>
+      </section>
+    </Layout>
+  )
 }
 
 export default PlatformsPage
