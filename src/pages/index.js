@@ -21,7 +21,7 @@ const indexPage = () => {
         </svg>
         </section>
         <section className="index-section-two">
-        <div className="flex-container">
+        <div className="flex-container slide-top">
           <h3>Choose the perfect platform</h3>
           <p>The right choice of platform can make a diffrence. It looks simple, but it's not.
             A community depends on the subject of it. Each community belongs somewhere, example on discord. 
@@ -29,12 +29,12 @@ const indexPage = () => {
           </p>
         </div>
 
-        <StaticImage width="500" height="500" src="../images/image3.png" alt="platforms"></StaticImage>
+        <StaticImage className="slide-right" width="500" height="500" src="../images/image3.png" alt="platforms"></StaticImage>
 
         </section>
         <section className="index-section-two">
-        <StaticImage src="../images/image2.png" alt="social"></StaticImage>
-        <div className="flex-container">
+        <StaticImage className="slide-left" src="../images/image2.png" alt="social"></StaticImage>
+        <div className="flex-container slide-bottom">
           <h3>We're here to help!</h3>
           <p>We're going to guide you trough this proces! All what you need to know will be given, we're gonna explain what each platform defined itself. By our help you will get a better view for this choice!
           </p>

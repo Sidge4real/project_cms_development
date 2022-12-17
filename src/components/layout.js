@@ -12,6 +12,10 @@ import "./layout.css"
 import DrawerAppBar from './header'
 import Footer from "./footer"
 
+// $(window).load(function() {      
+//   $(".slide1").fadeOut("fast");
+// });
+
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {

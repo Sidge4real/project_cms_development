@@ -23,12 +23,7 @@ const PlatformsPage = () => {
         }
       }
     }
-  }
-}
-
-
-}
-
+  }}
   `)
 
   // platformMeta in graphQL voor alle data
