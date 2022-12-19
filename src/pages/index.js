@@ -44,6 +44,43 @@ const indexPage = () => {
           <h3>Follow our guide</h3>
           <button>check here</button>
         </section>
+        <div className="contact-container">
+            <h2>Get in touch</h2>
+            <form>
+                <div className="flex-form-container">
+                <div className="input-container">
+                    <input type='text' required={true} />
+                    <label></label>
+                    <span>Email</span>
+                </div>
+                <div className="input-container">
+                    <input type='text' required={true} />
+                    <label></label>
+                    <span>First name</span>
+                </div>
+                <div className="input-container">
+                    <input type='text' required={true} />
+                    <label></label>
+                    <span>Last name</span>
+                </div>
+                </div>
+                <div className="flex-form-container">
+                <div className="input-container">
+                    <input type='text' required={true} />
+                    <label></label>
+                    <span>Subject</span>
+                </div>
+                <div className="input-container textarea">
+                    <textarea type='textarea' required={true} />
+                    <label></label>
+                    <span>Qeustion</span>
+                </div>
+                </div>
+                {/* netlify hidden input */}
+                <input type="hidden" name="form-name" value="contact"></input> 
+                <button type="submit" value="Submit">submit</button>
+            </form>
+            </div>
       </Layout>
     )
 }
