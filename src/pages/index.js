@@ -49,29 +49,29 @@ const indexPage = () => {
             <form>
                 <div className="flex-form-container">
                 <div className="input-container">
-                    <input type='text' required={true} />
+                    <input type='text' name="input" required={true} />
                     <label></label>
                     <span>Email</span>
                 </div>
                 <div className="input-container">
-                    <input type='text' required={true} />
+                    <input type='text' name="input" required={true} />
                     <label></label>
                     <span>First name</span>
                 </div>
                 <div className="input-container">
-                    <input type='text' required={true} />
+                    <input type='text' name="input" required={true} />
                     <label></label>
                     <span>Last name</span>
                 </div>
                 </div>
                 <div className="flex-form-container">
                 <div className="input-container">
-                    <input type='text' required={true} />
+                    <input type='text' name="input" required={true} />
                     <label></label>
                     <span>Subject</span>
                 </div>
                 <div className="input-container textarea">
-                    <textarea type='textarea' required={true} />
+                    <textarea type='textarea' name="input" required={true} />
                     <label></label>
                     <span>Qeustion</span>
                 </div>
