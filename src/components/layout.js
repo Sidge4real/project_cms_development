@@ -9,10 +9,10 @@ import * as React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 import "./layout.css"
-import DrawerAppBar from './header'
+import DrawerAppBar from "./header"
 import Footer from "./footer"
 
-// $(window).load(function() {      
+// $(window).load(function() {
 //   $(".slide1").fadeOut("fast");
 // });
 
@@ -29,14 +29,12 @@ const Layout = ({ children }) => {
 
   return (
     <>
-    <div className="container">
-    <title>{data.site.siteMetadata.title}</title>
-    <DrawerAppBar></DrawerAppBar>
-    <main>
-      {children}
-    </main>
-    <Footer></Footer>
-    </div>
+      <div className="container">
+        <title>{data.site.siteMetadata.title}</title>
+        <DrawerAppBar></DrawerAppBar>
+        <main>{children}</main>
+        <Footer></Footer>
+      </div>
     </>
   )
 }

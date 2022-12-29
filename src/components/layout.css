@@ -2,12 +2,27 @@
   margin: 0;
   padding: 0;
 }
-
+*:focus {
+  outline: none;
+}
 .cursorinnerhover {
   width: 50px;
   height: 50px;
   opacity: 0.5;
 }
+
+:root {
+  /* text colors */
+  --gray: lightslategrey;
+  --blue: #1a74e8;
+  --subgray: gray;
+  --discord: #7289da;
+  --reddit: #ff3e04;
+  --facebook: #3b579d;
+  /* white || #fff */
+  /* black || #000 */
+}
+
 html {
   -webkit-text-size-adjust: 100%;
   box-sizing: border-box;
@@ -33,13 +48,40 @@ main {
   position: relative;
   display: block;
 }
+
+/* focus */
+/* css doesn't work in header.js for focus it needs onFocus={focusFunction}
+ */
+
+/* ----- */
+
 p {
   font-size: 20px;
-  color: lightslategrey;
+}
+.flex-container p {
+  color: var(--gray);
 }
 
 /* header */
+/* werkt niet omwille met de componenten van mui. 
+   Het was niet de beste keuze, ik wist niet echt te starten met de css op het begin, 
+   ik kende niks over react.js en dacht dit anders ging gaan dan normaal.
+   */
 
+a:focus,
+a:hover {
+  color: var(--blue);
+}
+
+a {
+  color: var(--subgray);
+  text-decoration: none;
+}
+
+/* doesn't work (header.js) */
+.header-title {
+  color: #17c9fb;
+}
 /* index */
 .index-section-one {
   display: flex;
@@ -90,6 +132,14 @@ p {
   gap: 30px;
   height: 50%;
 }
+/* other container because of p tag color is white and not lightgray */
+.flex-container-begin {
+  display: flex;
+  gap: 40px;
+  flex-direction: column;
+  z-index: 1;
+  width: 40%;
+}
 .flex-container {
   display: flex;
   gap: 40px;
@@ -112,7 +162,7 @@ p {
   z-index: 1;
 }
 h3 {
-  color: #1a74e8;
+  color: var(--blue);
   font-size: 50px;
   font-weight: bold;
 }
@@ -141,7 +191,8 @@ h3 {
   font-size: 30px;
   transition: ease-in-out 0.3s;
 }
-.index-section-three button:hover {
+.index-section-three button:hover,
+.index-section-three button:focus {
   background-color: #17cafb7b;
   color: #fff;
   transition: ease-in-out 0.3s;
@@ -149,7 +200,7 @@ h3 {
 
 h4 {
   font-size: 20px;
-  color: #1a74e8;
+  color: var(--blue);
   font-weight: bold;
 }
 
@@ -178,12 +229,12 @@ h4 {
   cursor: pointer;
 }
 .footer li:hover {
-  color: #1a74e8;
+  color: var(--blue);
 }
 
 .footer-end {
   display: flex;
-  border-top: 2px solid gray;
+  border-top: 2px solid var(--subgray);
   padding-top: 10px;
   width: 100%;
 }
@@ -252,13 +303,15 @@ h2 {
   outline: none;
   border-bottom: 2.5px solid;
   border-color: black;
-  padding: 0px 2px;
+  padding: 7px 2px;
   min-width: 625px;
   max-width: 625px;
+  height: 16px;
   resize: none;
 }
 
-.input-container label {
+/* span: blue line when input active */
+.input-container span {
   position: absolute;
   left: 0;
   bottom: 0;
@@ -270,54 +323,57 @@ h2 {
   transition: 0.5s ease-in-out;
 }
 
-.input-container input:active ~ label,
-.input-container input:focus ~ label {
+.input-container input:active ~ span,
+.input-container input:focus ~ span {
   position: absolute;
   color: #1a74e8;
-  border-bottom: 2.5px solid #1a74e8;
+  border-bottom: 2.5px solid var(--blue);
   z-index: 4;
   width: 100%;
 }
-.input-container textarea:active ~ label,
-.input-container textarea:focus ~ label {
+.input-container textarea:active ~ span,
+.input-container textarea:focus ~ span {
   position: absolute;
   color: #1a74e8;
-  border-bottom: 2.5px solid #1a74e8;
+  border-bottom: 2.5px solid var(--blue);
   z-index: 4;
   width: 630px;
 }
-
-.input-container span {
+/* label */
+.input-container label {
   position: absolute;
   left: 0;
   bottom: 0;
   padding-bottom: 7px;
   transition: 0.25s ease-in-out;
   font-size: 20px;
-  color: lightslategrey;
+  color: var(--gray);
 }
 
-.input-container input:active ~ span,
-.input-container input:focus ~ span {
+.input-container input:active ~ label,
+.input-container input:focus ~ label {
   position: absolute;
   bottom: 20px;
-  color: #1a74e8;
+  color: var(--blue);
   font-size: 15px;
 }
-.input-container input:valid ~ span {
+/* What I wanted to do with this, is that when example email input field has the correct way
+   of writing a email then it turns green.
+*/
+.input-container input:valid ~ label {
   position: absolute;
   bottom: 20px;
   color: #00ff44;
   font-size: 15px;
 }
-.input-container textarea:active ~ span,
-.input-container textarea:focus ~ span {
+.input-container textarea:active ~ label,
+.input-container textarea:focus ~ label {
   position: absolute;
   bottom: 20px;
-  color: #1a74e8;
+  color: var(--blue);
   font-size: 15px;
 }
-.input-container textarea:valid ~ span {
+.input-container textarea:valid ~ label {
   position: absolute;
   bottom: 20px;
   color: #00ff44;
@@ -339,13 +395,57 @@ h2 {
   cursor: pointer;
   align-self: center;
 }
+.contact-container button:focus {
+  background-color: var(--blue);
+}
 .contact-container button:hover {
-  background-color: #1a74e8;
+  background-color: var(--blue);
 }
 
 /* contact page */
-#copyText {
+.copyText {
   cursor: pointer;
+  color: var(--blue);
+  background: none;
+  border: none;
+  font-size: 15px;
+}
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: visible;
+  width: 140px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 80%;
+  left: 50%;
+  margin-left: -75px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+.copyText:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
 }
 
 .contactPage-section {
@@ -373,7 +473,7 @@ h2 {
 }
 .contact-info-container p,
 .icon {
-  color: #1a74e8;
+  color: var(--blue);
   margin-top: 10px;
 }
 
@@ -381,7 +481,7 @@ h2 {
   display: flex;
   flex-direction: column;
   height: 550px;
-  background: linear-gradient(#1a74e8, #17c9fb);
+  background: linear-gradient(var(--blue), #17c9fb);
   position: relative;
   align-items: center;
   margin-bottom: 50px;
@@ -416,12 +516,12 @@ h2 {
 .image_eu {
   position: absolute;
   right: 0;
-  top: 0;
+  top: 30px;
 }
 .image_na {
   position: absolute;
   left: 0;
-  top: 0;
+  top: 30px;
 }
 .locations-flex {
   display: flex;
@@ -431,7 +531,7 @@ h2 {
 /* platform boxes */
 .platformPage-main-overwrite {
   width: 100vw;
-  height:  900px;
+  height: auto;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -452,55 +552,164 @@ h2 {
   background-color: rgba(255, 255, 255, 0.523);
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
-.background-platformPage{
+.background-platformPage {
   height: 100%;
   width: 100%;
 }
 
-.platformPage-main-overwrite p{
+.platformPage-main-overwrite p {
   width: 100%;
   display: flex;
   position: relative;
+  text-align: center;
+  padding: 5px;
 }
-.platformPage-main-overwrite b {
-  margin-right: auto;
-  margin-left: 20px;
+
+.platform-link-4button {
+  position: absolute;
+  bottom: 60px;
+  cursor: pointer;
 }
-.platformPage-main-overwrite span{
-  margin-right: 20px;
-  margin-left: auto;
+.platform-link-4button:focus .platform-link-button {
+  padding: 20px 25px;
+  bottom: 45px;
+  font-size: large;
 }
-.platform-link-button{
+.platform-link-button {
   color: #fff;
   padding: 15px 20px;
   border-radius: 1rem;
   text-decoration: none;
-  position: absolute;
   bottom: 50px;
-  transition: all .2s linear;
+  transition: all 0.2s linear;
+  border: none;
+  cursor: pointer;
 }
-.platform-link-button:hover{
+.platform-link-button:hover {
   padding: 20px 25px;
   bottom: 45px;
-  font-size:large;
+  font-size: large;
 }
-.platformPage-main-overwrite .gatsby-image-wrapper img{
+.platformPage-main-overwrite .gatsby-image-wrapper img {
   position: relative;
   border-radius: 1rem;
   width: 100px;
   height: 100px;
   margin-bottom: 20px;
 }
-.discord{
-  background-color: #7289DA;
+.discord {
+  background-color: var(--discord);
 }
-.reddit{
-  background-color: #FF3E04;
+.reddit {
+  background-color: var(--reddit);
 }
-.facebook{
-  background-color: #3B579D;
+.facebook {
+  background-color: var(--facebook);
 }
 
+/* wpPlatform.slug */
+.PlatformSubPage-main-overwrite {
+  height: 400px;
+  width: 50%;
+  padding: 50px;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  border-radius: 2rem;
+  gap: 10px;
+  margin-top: 205px;
+  margin-bottom: 205px;
+}
+.discordSubPage {
+  background: rgb(114, 137, 218, 0.4);
+}
+.facebookSubPage {
+  background: rgb(59, 87, 157, 0.4);
+}
+.redditSubPage {
+  background: rgb(255, 62, 4, 0.4);
+}
+.PlatformSubPage-main-overwrite .icons {
+  border-radius: 1.2rem;
+  position: absolute;
+  bottom: 50px;
+  right: 50px;
+}
+.PlatformSubPage-main-overwrite h2 {
+  margin: 0;
+  padding: 0;
+}
+.discordTitle {
+  color: var(--discord);
+}
+.redditTitle {
+  color: var(--reddit);
+}
+.facebookTitle {
+  color: var(--facebook);
+}
+.discord-text {
+  color: var(--discord);
+}
+.facebook-text {
+  color: var(--facebook);
+}
+.reddit-text {
+  color: var(--reddit);
+}
+.description-platfroms {
+  color: white;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: left;
+}
+.info-box {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  align-self: flex-start;
+}
+.info-box p {
+  color: #fff;
+}
+.icon-button {
+  border-radius: 50%;
+  padding: 10px;
+}
+.icon-discord {
+  background-color: rgb(114, 137, 218, 0.4);
+  transition: all 0.2s linear;
+}
+.icon-facebook {
+  background-color: rgb(59, 87, 157, 0.4);
+  transition: all 0.2s linear;
+}
+.icon-reddit {
+  background-color: rgb(255, 62, 4, 0.4);
+  transition: all 0.2s linear;
+}
+.icon-discord:hover,
+.icon-discord:focus {
+  background-color: var(--discord);
+  color: #fff;
+}
+.icon-facebook:hover,
+.icon-facebook:focus {
+  background-color: var(--facebook);
+  color: #fff;
+}
+.icon-reddit:hover,
+.icon-reddit:focus {
+  background-color: var(--reddit);
+  color: #fff;
+}
+.icon-link {
+  position: absolute;
+  bottom: 10px;
+}
 /* screen on load animation for images */
 @keyframes slide-left {
   0% {
