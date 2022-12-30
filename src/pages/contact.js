@@ -7,15 +7,8 @@ import LocationOnIcon from "@mui/icons-material/LocationOn"
 import SignpostIcon from "@mui/icons-material/Signpost"
 
 function copyFunction(event) {
-  //   // Get the text field
   let copyText = event.target.innerText
-
-  // Copy the text inside the text field
   navigator.clipboard.writeText(copyText)
-
-  // Alert the copied text
-  //   alert("Copied the text: " + copyText);
-
   let tooltip = event.target.firstChild
   tooltip.innerHTML = "Copied"
 }
@@ -81,19 +74,13 @@ const ContactPage = () => {
       {/* Can be straighter and more in line, but you need to make table for that... */}
       <section className="contactPage-section-2">
         <StaticImage
-          className="image_eu"
-          width="500"
-          height="500"
-          src="../images/EU.png"
-        />
-        <StaticImage
           className="image_na"
           width="500"
           height="500"
           src="../images/NA.png"
         />
+        <div>
         <h3>Locations</h3>
-
         <h4>EU</h4>
         <div className="locations-flex">
           {/* left */}
@@ -135,7 +122,6 @@ const ContactPage = () => {
             </li>
           </ul>
         </div>
-
         <h4>NA</h4>
         <div className="locations-flex">
           {/* left */}
@@ -169,7 +155,14 @@ const ContactPage = () => {
             </li>
           </ul>
         </div>
-      </section>
+        </div>
+        <StaticImage
+          className="image_eu"
+          width="500"
+          height="500"
+          src="../images/EU.png"
+        />
+        </section>
     </Layout>
   )
 }
