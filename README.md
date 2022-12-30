@@ -14,7 +14,7 @@
 - Wordpress = admin where data was added manual without coding
 
 ## 💻 Not responsive
-<p align="left">The website is not responsive for mobile or tablet. Only laptop/desktop pc's are supported.</p>
+<p align="left">The website is not responsive for mobile or tablet. Only laptop/desktop pc's are supported. Wasn't time for responsivness, mediaqueries... was not aa part of the task.</p>
 
 ## 🚀 Gatsby
 Start your own project with Gatsby! 
