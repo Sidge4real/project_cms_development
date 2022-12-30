@@ -71,7 +71,7 @@ const indexPage = () => {
       </section>
       <div className="contact-container">
         <h2>Get in touch</h2>
-        <form>
+        <form name="contact" method="POST"  data-netlify="true">
           {/* <label /> = blue line when input/textfield is active
               <input /> must be in the <label></label> or no <label />
                  > 5 same warnings: jsx-a11y/label-has-associated-control
