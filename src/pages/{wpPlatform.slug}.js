@@ -61,7 +61,6 @@ const SubPagePlatforms = ({
               usecases.nodes.map((item, index) => {
                 const usecase = item.name;
                 let length = usecases.nodes.length;
-                console.log(index);
                 return(
                   index+1 === length-1 ? 
                   <span>{usecase} & </span>
@@ -220,7 +219,7 @@ export const query = graphql`
         icon {
           localFile {
             childImageSharp {
-              gatsbyImageData(width: 200, height: 200)
+              gatsbyImageData(width: 100, height: 100)
             }
           }
         }

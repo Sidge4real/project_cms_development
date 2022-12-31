@@ -622,8 +622,7 @@ h2 {
   flex-direction: column;
   border-radius: 2rem;
   gap: 10px;
-  margin-top: 205px;
-  margin-bottom: 205px;
+  margin-top: 20px;
 }
 .discordSubPage {
   background: rgb(114, 137, 218, 0.4);
@@ -637,8 +636,8 @@ h2 {
 .PlatformSubPage-main-overwrite .icons {
   border-radius: 1.2rem;
   position: absolute;
-  bottom: 50px;
-  right: 50px;
+  bottom: 20px;
+  right: 20px;
 }
 .PlatformSubPage-main-overwrite h2 {
   margin: 0;
@@ -665,7 +664,6 @@ h2 {
 .description-platfroms {
   color: white;
   margin-top: 20px;
-  margin-bottom: 20px;
   text-align: left;
 }
 .info-box {
@@ -673,6 +671,7 @@ h2 {
   flex-direction: column;
   align-items: flex-start;
   align-self: flex-start;
+  position: relative;
 }
 .info-box p {
   color: #fff;
