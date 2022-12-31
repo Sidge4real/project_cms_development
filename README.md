@@ -5,6 +5,7 @@
 
 ## 🔗 working
 <p align="left">Wordpress admin with custom fields, wich is used to give data input fields. This goes to  costum post type "platforms". The custom post has usecases added via taxonomies in wordpress. This meta data go to the project via GraphQL layer to the Gatsby project.</p>
+<a href="https://wizcom.netlify.app/">Website</a>
 
 ## 🗂 Info
 - React.js = javascript library
